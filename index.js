@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const port = 3001;
+const HTTP_PORT = 8080;
 
 
 app.use(cors());
@@ -112,6 +112,6 @@ app.get('/', async (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
+app.listen(HTTP_PORT, () => {
     console.log(`Server is running on port ${port}`);
 });
