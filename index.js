@@ -44,6 +44,17 @@ const UserData = mongoose.model('UserData', dataSchema);
 // Middleware
 app.use(express.json());
 
+
+app.get('/api/data', async (req, res) => {
+    try {
+        const allData = await UserData.find();
+        res.json(allData);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching data');
+    }
+});
+
 // Get all data API
 app.get('/api/data', async (req, res) => {
     try {
@@ -96,11 +107,8 @@ app.put('/api/update/:id', async (req, res) => {
 });
 
 
-// Count API
-let addCount = 0;
-let updateCount = 0;
-app.get('/api/count', (req, res) => {
-    res.json({ addCount, updateCount });
+app.get('/', async (req, res) => {
+    res.json("API is running")
 });
 
 // Start the server
