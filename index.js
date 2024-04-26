@@ -45,16 +45,6 @@ const UserData = mongoose.model('UserData', dataSchema);
 app.use(express.json());
 
 
-app.get('/api/data', async (req, res) => {
-    try {
-        const allData = await UserData.find();
-        res.json(allData);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Error fetching data');
-    }
-});
-
 // Get all data API
 app.get('/api/data', async (req, res) => {
     try {
