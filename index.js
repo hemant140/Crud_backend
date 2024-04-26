@@ -103,5 +103,5 @@ app.get('/', async (req, res) => {
 
 // Start the server
 app.listen(HTTP_PORT, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on port ${HTTP_PORT}`);
 });
